@@ -1,0 +1,23 @@
+branch-defaults:
+  master:
+    environment: coffee-remocon-dev2
+  status:
+    environment: coffee-remocon-dev
+    group_suffix: null
+  utf-8:
+    environment: coffee-remocon-dev
+    group_suffix: null
+global:
+  application_name: coffee-remocon
+  branch: null
+  default_ec2_keyname: EC2_Keypair_suev72Naver
+  default_platform: Python 3.6
+  default_region: ap-northeast-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  repository: null
+  sc: git
+  workspace_type: Application
