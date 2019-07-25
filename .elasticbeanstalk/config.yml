@@ -1,12 +1,7 @@
 branch-defaults:
   master:
     environment: coffee-remocon-dev2
-  status:
-    environment: coffee-remocon-dev
-    group_suffix: null
-  utf-8:
-    environment: coffee-remocon-dev
-    group_suffix: null
+    
 global:
   application_name: coffee-remocon
   branch: null

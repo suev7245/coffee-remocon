@@ -12,6 +12,3 @@ venv
 
 # 프로그램시작(load)시간을 줄이기 위해 파이썬은 바이트로 컴파일된 pyc 파일을 먼저 본다. 즉 각 py파일마다 하나씩 pyc파일을 가짐.
 *.pyc
-
-#카카오로그인 하면서 만든 html파일
-order/templates/order/kakao.html
