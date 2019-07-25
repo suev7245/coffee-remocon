@@ -5,8 +5,7 @@ import os, json, datetime
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ROOT_DIR = os.path.dirname(BASE_DIR)
 
-DEBUG = True
-
+DEBUG = False
 
 # 공통부분, 개발모드/배포모드 로 나누어 파일 참조함. 위의 DEBUG=True값만 조정해주면 됨.
 SECRET_DIR = os.path.join(BASE_DIR, '.config_secret')
@@ -50,10 +49,6 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
-
-
-
-
 # Configure the JWTs to expire after 1 hour, and allow users to refresh near-expiration tokens
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
@@ -81,12 +76,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-## TO BE CHANGED
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-    'https://mockup-pg-web.kakao.com',
-    'https://coffee-remocon-dev2.ap-northeast-2.elasticbeanstalk.com',
-)
+# ## TO BE CHANGED
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000',
+#     'https://mockup-pg-web.kakao.com',
+#     'https://coffee-remocon-dev2.ap-northeast-2.elasticbeanstalk.com',
+# )
 
 ROOT_URLCONF = 'coffee.urls'
 
@@ -126,11 +121,11 @@ DATABASES = {
             'read_default_file': os.path.join(SECRET_DIR, "mysql.cnf"),
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  # strict mode 설정 추가
         },
-        'NAME': 'ebdb',
-        'USER': 'slee',
-        'PASSWORD' : 'tkddms!123',
-        'HOST' : 'aa1xme1ma04xmr9.cjdiyjb6gpjl.ap-northeast-2.rds.amazonaws.com',
-        'PORT' : '3306'
+        'NAME': secret_common['DB']["name"],
+        'USER': secret_common['DB']["user"],
+        'PASSWORD' : secret_common['DB']["password"],
+        'HOST' : secret_common['DB']["host"],
+        'PORT' : secret_common['DB']["port"]
     }
 }
 
