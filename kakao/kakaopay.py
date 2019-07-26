@@ -23,6 +23,7 @@ headers = {
 
 pay_url = 'https://kapi.kakao.com/v1/payment/ready'
 check_url = 'https://kapi.kakao.com/v1/payment/approve'
+front_url = 'http://coffee-remocon-front.s3-website.ap-northeast-2.amazonaws.com/'
 
 @csrf_exempt
 @permission_classes([IsAuthenticated])
@@ -96,6 +97,13 @@ def Check(request):
     approve_data = json.loads(res.text)
     thisorder.status = 'c'
     thisorder.save(update_fields=["status"])
+
+    new_payment=Payment.objects.create()
+    new_payment.aid = approve_data['aid']
+    new_payment.payment_method_type = approve_data['payment_method_type']
+    new_payment.tid = approve_data['tid']
+    new_payment.amount = approve_data['amount']['total']
+    new_payment.save()
     return JsonResponse(approve_data)
 
 

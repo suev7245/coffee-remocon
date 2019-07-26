@@ -5,7 +5,7 @@ import os, json, datetime
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ROOT_DIR = os.path.dirname(BASE_DIR)
 
-DEBUG = False
+DEBUG = True
 
 # 공통부분, 개발모드/배포모드 로 나누어 파일 참조함. 위의 DEBUG=True값만 조정해주면 됨.
 SECRET_DIR = os.path.join(BASE_DIR, '.config_secret')
@@ -153,7 +153,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-USE_TZ = True
+USE_TZ = False
 TIME_ZONE = 'Asia/Seoul'
 
 
